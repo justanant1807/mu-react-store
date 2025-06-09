@@ -4,9 +4,9 @@ import { useState } from "react";
 export default function Register() {
   const [user, setUser] = useState({});
   const [count, setCount] = useState(0);
-  const [addv, setAddv] = useState(0);
-  
-
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+  const [result, setResult] = useState();
   const handleClick = () => {
     alert("Hello World");
   };
@@ -14,16 +14,8 @@ export default function Register() {
     setCount(count + 1);
   };
 
-  const addFunction = () =>{
-
-    setAddv(addv + 1);
-
-  };
-
-  const subtractFunction = () =>{
-
-    setAddv(addv - 1);
-
+  const findSum = () => {
+    setResult(Number(a) + Number(b));
   };
   return (
     <div>
@@ -60,13 +52,19 @@ export default function Register() {
       <button onClick={handleClick}>Click</button>
       <hr />
       <p>
-        {count}<br></br>
+        {count}
+        <br></br>
         <button onClick={updateCount}>Update Count</button>
-        <hr />
-        {addv}<br></br>
-        <button onClick = {addFunction}>Add</button>
-        <button onClick = {subtractFunction}>Subtract</button>
       </p>
+      <hr />
+      <p>
+        <input type="number" onChange={(e) => setA(e.target.value)} />
+      </p>
+      <p>
+        <input type="number" onChange={(e) => setB(e.target.value)} />
+      </p>
+      <button onClick={findSum}>Submit</button>
+      <p>{result}</p>
     </div>
   );
 }
