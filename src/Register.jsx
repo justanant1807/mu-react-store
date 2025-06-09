@@ -11,7 +11,7 @@ export default function Register() {
     alert("Hello World");
   };
   const updateCount = () => {
-    setCount(count + 1);
+    setCount(count + 1 );
   };
 
   const findSum = () => {
