@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -8,9 +8,16 @@ import Login from "./Login";
 import Register from "./Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
+
+export const AppContext = createContext()
+
 function App() {
+    // const [user, setUser] = useState({});
+    const [users,setUsers] = useState([]); 
   return (
     <div>
+      
+      <AppContext.Provider value = {{users,setUsers}}>
       <BrowserRouter>
         <Header name="mu-react-store" />
         <Routes>
@@ -21,7 +28,10 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
+      </AppContext.Provider>
+      
     </div>
+    
   );
 }
 export default App;
