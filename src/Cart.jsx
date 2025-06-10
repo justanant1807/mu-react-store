@@ -33,7 +33,7 @@ export default function Cart() {
       <h2>Order Value:{cart.price * cart.qty}</h2>
       <hr />
       <p>
-        {email ? <button>Place Order</button> : <button onClick = {handleLogin}>Login to Order</button>}
+        {email ? <button onClick = {handleLogin}>Login to Order</button> : <button>Place Order</button>}
       </p>
     </div>
   );
