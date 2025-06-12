@@ -36,7 +36,7 @@ export default function Home() {
       price: obj.price,
       desc: obj.desc,
       qty: 1,
-      email: email, //sending all these to the cart component 
+      email:email,
     });
     Navigate("/cart");
   };

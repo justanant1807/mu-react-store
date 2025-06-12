@@ -7,7 +7,5 @@ export default function Logout() {
   const Navigate = useNavigate()
   setEmail(null);
   Navigate("/")
-  return (
-    <div>Logout</div>
-  )
+  return <div>Logout</div>;
 }
