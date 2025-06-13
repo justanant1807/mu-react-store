@@ -2,20 +2,33 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "./App";
+import axios from "axios";
+
 export default function Login() {
   const [user, setUser] = useState({});
   const [error, setError] = useState();
   const Navigate = useNavigate();
   const { users,setEmail } = useContext(AppContext);
-  const handleSubmit = () => {
-    const found = users.find(
-      (elem) => elem.email === user.email && elem.pass === user.pass
-    );
-    if (!found) {
+  const handleSubmit =  async () => {
+    
+    const url = "http://localhost:8080/login"
+    const res = await axios.post("http://localhost:8080/login", user);//saves the data received from login API in res
+
+    // const found = users.find(
+    //    (elem) => elem.email === user.email && elem.pass === user.pass
+    // ); 
+
+    // const found = await axios.get(url,found);
+
+
+    // if there is no data in res , Access Denied
+    if (!res.data) { // adjust this check based on your API response format
+      
       setError("Access Denied");
+      
     } else {
-      setEmail(user.email)
-      Navigate("/");
+      setEmail(user.email);
+      Navigate("/"); // redirect on success
     }
   };
   return (

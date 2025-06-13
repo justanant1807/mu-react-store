@@ -22,7 +22,7 @@ export default function Register() {
     };
     // setUsers([...users, user]);
     setUsers([...users, userObj]);
-    const url = "http://localhost:8080/users"
+    const url = "http://localhost:8080/register"
     axios.post(url, userObj);//wwe have mention object we want to post i.e. specify 
     Navigate("/login");
   };
